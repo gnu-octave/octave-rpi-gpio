@@ -1,0 +1,5 @@
+autoload("bcm2835_init","bcm2835.oct")
+autoload("bcm2835_close","bcm2835.oct")
+autoload("bcm2835_gpio_fsel","bcm2835.oct")
+autoload("bcm2835_gpio_clr","bcm2835.oct")
+autoload("bcm2835_gpio_set","bcm2835.oct")
