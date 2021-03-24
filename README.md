@@ -3,7 +3,7 @@ octave-rpi-gpio
 
 GNU Octave wrapper around libbcm2835 for GPIO control of the RaspberryPI IOs
 
-Oct wrapper v0.0.1 around libbcm2835
+Oct wrapper v0.0.2 around libbcm2835
 
 1.) install octave and liboctave-dev as described on
     http://wiki.octave.org/Rasperry_Pi
@@ -11,9 +11,9 @@ Oct wrapper v0.0.1 around libbcm2835
 2.) get and compile libbcm2835 from http://www.airspayce.com/mikem/bcm2835/:
 
 ```
-    $ wget http://www.airspayce.com/mikem/bcm2835/bcm2835-1.50.tar.gz
-    $ tar xzvf bcm2835-1.50.tar.gz
-    $ cd bcm2835-1.50/
+    $ wget http://www.airspayce.com/mikem/bcm2835/bcm2835-1.68.tar.gz
+    $ tar xzvf bcm2835-1.68.tar.gz
+    $ cd bcm2835-1.68/
     $ ./configure CFLAGS=-fPIC
     $ make
     $ sudo make install
