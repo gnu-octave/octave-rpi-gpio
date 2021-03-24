@@ -2,7 +2,7 @@
 ## 14.01.2013 Andreas Weber
 ##
 
-bcm2835_init()
+bcm2835_init();
 
 # for RPi revision 1 GPIO header
 # RPI_GPIO_P1_26 = 7

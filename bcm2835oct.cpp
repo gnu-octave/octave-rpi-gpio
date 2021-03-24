@@ -8,6 +8,8 @@
 #include <octave/oct.h>
 #include <bcm2835.h>
 
+static int init_ret = 0;
+
 DEFUN_DLD (bcm2835_init, args, nargout,
   "-*- texinfo -*-\n\
 @deftypefn  {@var{ret}=} bcm2835_init ()\n\
@@ -20,7 +22,8 @@ Prints messages to stderr in case of errors. \n\
 @end deftypefn")
 {
   octave_value_list retval;
-  retval(0) = bcm2835_init ();
+  init_ret = bcm2835_init ();
+  retval(0) = init_ret;
   return retval;
 }
 
@@ -43,10 +46,13 @@ TDOD: document me!\n\
 {
   octave_value_list retval;
   int nargin = args.length ();
-  if (nargin !=2)
-    {
-      print_usage ();
-    }
+
+  if (nargin != 2)
+    print_usage ();
+
+  if (! init_ret)
+    error ("bcm2835 not initialized");
+
   int pin = args(0).int_value();
   int mode = args(1).int_value();
 
@@ -62,10 +68,13 @@ TDOD: document me!\n\
 {
   octave_value_list retval;
   int nargin = args.length ();
-  if (nargin !=1)
-    {
-      print_usage ();
-    }
+
+  if (nargin != 1)
+    print_usage ();
+
+  if (! init_ret)
+    error ("bcm2835 not initialized");
+
   int pin = args(0).int_value();
 
   bcm2835_gpio_set (pin);
@@ -81,9 +90,11 @@ TDOD: document me!\n\
   octave_value_list retval;
   int nargin = args.length ();
   if (nargin !=1)
-    {
-      print_usage ();
-    }
+    print_usage ();
+
+  if (! init_ret)
+    error ("bcm2835 not initialized");
+
   int pin = args(0).int_value();
 
   bcm2835_gpio_clr (pin);
